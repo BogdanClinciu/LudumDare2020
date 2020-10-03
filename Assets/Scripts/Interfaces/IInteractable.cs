@@ -1,6 +1,8 @@
-﻿public interface IInteractable
+﻿using UnityEngine;
+
+public abstract class Interactable : MonoBehaviour
 {
-    string ActionName{get;}
-    bool Interactable {get;}
-    void Interact();
+    public abstract string ActionName {get;}
+	public abstract bool IsInteractable { get; set; }
+    public abstract void Interact();
 }

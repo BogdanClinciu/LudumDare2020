@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Update()
     {
+		if (!GetComponent<PlayerController>().ControlEnabled)
+			return;
+		
 		horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
 		if(Input.GetButtonDown("Jump"))
@@ -29,6 +32,9 @@ public class PlayerMovement : MonoBehaviour
 
 	private void FixedUpdate()
 	{
+		if (!GetComponent<PlayerController>().ControlEnabled)
+			return;
+
 		controller.Move(horizontalMove * GameManager.Instance.FixedDeltaTime , false, jump);
 		jump = false;
 	}

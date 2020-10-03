@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestInteractive : MonoBehaviour, IInteractable
+public class TestInteractive : Interactable
 {
-	public string ActionName => throw new System.NotImplementedException();
+	public override string ActionName => "Open Something";
 
-	public bool Interactable => throw new System.NotImplementedException();
+	public override bool IsInteractable { get; set; } = true;
 
-	public void Interact()
+	public override void Interact()
 	{
-		throw new System.NotImplementedException();
+		IsInteractable = false;
+		Debug.Log("OpenDrawer");
+		GetComponent<Collider2D>().enabled = false;
 	}
-
 }

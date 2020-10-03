@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IInteractable
+﻿public interface IInteractable
 {
+    string ActionName{get;}
     bool Interactable {get;}
     void Interact();
 }
